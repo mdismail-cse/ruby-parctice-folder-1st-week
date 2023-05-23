@@ -1,0 +1,36 @@
+#!/usr/bin/ruby
+
+require 'pdf/reader'
+
+def convert_pdf_to_audio(file_path, output_file)
+  reader = PDF::Reader.new(file_path)
+
+  # Extract text from the PDF
+  text = ""
+  reader.pages.each do |page|
+    text += page.text
+  end
+
+  # Save the text to a temporary file
+  temp_text_file = "temp_text.txt"
+  File.write(temp_text_file, text)
+
+  # Convert the text file to audio using espeak-ng
+  system("espeak-ng -f #{temp_text_file} -w #{output_file}")
+
+  # Delete the temporary text file
+  File.delete(temp_text_file)
+
+  puts "PDF converted to audio successfully!"
+end
+
+# Provide the path to the PDF file you want to convert
+pdf_file_path = "/home/ismail/Downloads/book_11.pdf"
+
+# Provide the output file path for the audio file (e.g., output.wav)
+output_file_path = "/home/ismail/Downloads/output.wav"
+
+# Convert PDF to audio
+convert_pdf_to_audio(pdf_file_path, output_file_path)
+
+

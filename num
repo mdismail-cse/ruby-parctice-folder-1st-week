@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+
+test = 100
+
+pest = 9.000
+
+p = (test*pest).to_i
+
+
+puts p
+

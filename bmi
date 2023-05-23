@@ -1,0 +1,24 @@
+#!/usr/bin/ruby
+
+
+
+puts "bmi before 18 is low in body health"
+
+puts "between 18 to 25 is healthy"
+
+puts "after 25 it is not very good health "
+
+
+puts "enter the hight(cm)"
+
+hight = gets.chomp.to_f
+
+puts "enter weight in (kg)"
+
+weight = gets.chomp.to_f
+
+bmi = weight / (hight/100)**2
+
+puts ""
+
+puts "Bmi #{bmi}"
